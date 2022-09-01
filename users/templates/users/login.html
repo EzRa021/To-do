@@ -1,0 +1,156 @@
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Kitan </title>
+  <link rel="stylesheet" href="{% static 'cordarapp/css/fontawesome.min.css'%}">
+  <link rel="stylesheet" href="{% static 'cordarapp/css/style.css'%}">
+  <!-- fontawesome -->
+  <script src="{https://kit.fontawesome.com/8ff1635e34.js}" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'cordarapp/css/fontawesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'cordarapp/css/style.css' %}">
+
+
+
+
+</head>
+
+<body>
+  <!-- header start -->
+  <header class="header js-header">
+    <div class="container">
+      <div class="logo"><a href="#"> Kitan <span>Cleaning Service</span></a></div>
+      <button type="button" class="nav-toggler js-nav-toggler">
+        <span></span>
+      </button>
+      <nav class="nav js-nav">
+        <ul>
+          <li><a href="{% url 'cordarapp:home'%}">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="{% url 'cordarapp:services'%}">Services</a></li>
+          <li><a href="{% url 'cordarapp:pricing'%}">Pricing</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li> <a href="{% url 'usersapp:register'%}">register</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- header ends -->
+
+  <!-- home section start -->
+  <section class="home" id="home">
+    <div class="container">
+      <div class="grid">
+        <div class="home-text">
+          <h1>need cleaning services ?</h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam cupiditate fugit nobis
+            officia voluptate nostrum!</p>
+          <div class="btn-wrap">
+            <a href="#about" class="btn">Know More</a>
+          </div>
+        </div>
+        <div class="home-img">
+          <div class="circle-wrap">
+            <div class="circle"></div>
+          </div>
+          <img src="{% static 'cordarapp/images/cleaner-removebg-preview.png'%}" alt="img">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- home section ends -->
+  <style>
+    #sec_form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 20%;
+    }
+
+    div.main_form {
+      height: auto;
+      width: 25%;
+      border-radius: 10px;
+      background: linear-gradient(to bottom, rgba(5, 5, 5, 0.904), rgba(9, 172, 221, 0.89));
+      box-shadow: 8px 8px 8px aliceblue;
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* justify-content: center;
+      align-items: center; */
+      padding: 10px;
+    }
+
+    div.button>button {
+      background-color: rgb(8, 82, 180);
+      color: aliceblue;
+      width: 40%;
+      padding: 10px 20px 10px 20px;
+      font-weight: bolder;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      margin-left: 30%;
+      margin-top: 50px;
+      border: 1px solid white;
+    }
+
+    input {
+      padding: 7px;
+      width: 100%;
+      margin-top: 10%;
+      background-color: rgba(255, 255, 255, 0.863);
+      border-radius: 10px;
+      align-items: center;
+      outline: none;
+      border: none;
+
+    }
+
+    .reg {
+      margin-left: 35%;
+      margin-top: 20px;
+    }
+
+    .reg h1 {
+      color: white;
+    }
+
+    .msg {
+      text-align: center;
+      height: 10px;
+    }
+  </style>
+
+
+  <section id="sec_form">
+    <div class="main_form">
+      <form action="" method="post">
+        <div class="reg">
+          <h1>LOGIN</h1>
+        </div>
+        {% csrf_token %}
+        <div class="form">
+          <input type="text" placeholder="Enter your username" required name="username" id="username">
+        </div>
+        <div class="form">
+          <input type="password" placeholder="Enter your password" required name="password" id="password">
+        </div>
+        {% for msg in messages %}
+        <div class="msg">{{msg}}</div>
+        {% endfor %}
+        <div class="button">
+          <button>SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</body>
+
+</html>
